@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import resumeData from '../resumeData';
+import Scrollspy from 'react-scrollspy';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const navItems = ['home', 'about', 'resume', 'portfolio', 'contact']
 
@@ -21,9 +23,11 @@ export default class Header extends Component {
             </div>
             {/* <div className="mobile-btn" href="#" title="Hide navigation">Hide navigation</div> */}
             <ul id="nav" className={navClass}>
+              <Scrollspy items={navItems} currentClassName="current">
               {navItems.map((item,i)=>{
-                return <li key={i}><a href={`#${item}`}>{capitalize(item)}</a></li>
+                return <li key={i}><AnchorLink href={`#${item}`}>{capitalize(item)}</AnchorLink></li>
               })}
+              </Scrollspy>
             </ul>
           </nav>
 
